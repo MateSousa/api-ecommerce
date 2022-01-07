@@ -26,7 +26,7 @@ export default class User extends BaseModel {
   public phone: string
 
   @hasMany(() => Adress)
-  public adresses: HasMany<typeof Adress>
+  public adress: HasMany<typeof Adress>
 
   @hasMany(() => Payment)
   public payments: HasMany<typeof Payment>

@@ -5,7 +5,8 @@ import { Adress, User } from 'App/Models/User'
 export default class Adresses {
   public async store({ request, auth }: HttpContextContract) {
     const data = await request.validate(StoreValidator)
-    const adress = await auth.user!.related('adresses').create(data)
+    const user = await User.findOrFail(auth.user!.id)
+    const adress = await Adress.create({ ...data, userId: user.id })
     return adress
   }
 
