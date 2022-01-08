@@ -1,13 +1,14 @@
 import { DateTime } from 'luxon'
 import { BaseModel, BelongsTo, belongsTo, column } from '@ioc:Adonis/Lucid/Orm'
 import { User } from 'App/Models/User'
+import { PaymentType } from 'App/Utils'
 
 export default class Payment extends BaseModel {
   @column({ isPrimary: true })
   public id: number
 
   @column()
-  public paymentType: ['credit_card', 'debit_card', 'paypal', 'bitcoin']
+  public paymentType: PaymentType
 
   @column()
   public cardNumber: string
@@ -20,6 +21,9 @@ export default class Payment extends BaseModel {
 
   @column()
   public cardCvv: string
+
+  @column()
+  public userId: number
 
   @belongsTo(() => User)
   public user: BelongsTo<typeof User>
