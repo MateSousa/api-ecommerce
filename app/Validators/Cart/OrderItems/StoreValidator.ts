@@ -6,6 +6,8 @@ export default class StoreValidator {
 
   public schema = schema.create({
     quantity: schema.number(),
+    productId: schema.number(),
+    orderId: schema.number(),
   })
 
   public messages = {}

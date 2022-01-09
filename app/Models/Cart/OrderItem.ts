@@ -15,6 +15,10 @@ export default class OrderItem extends BaseModel {
 
   @column()
   public quantity: number
+  
+
+  @column()
+  public productDetails: []
 
   @hasOne(() => Product)
   public product: HasOne<typeof Product>

@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column, hasOne, HasOne } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, column, belongsTo, BelongsTo } from '@ioc:Adonis/Lucid/Orm'
 import { OrderDetail } from 'App/Models/Cart'
 
 export default class PaymentDetail extends BaseModel {
@@ -18,8 +18,8 @@ export default class PaymentDetail extends BaseModel {
   @column()
   public status: string
 
-  @hasOne(() => OrderDetail)
-  public orderDetail: HasOne<typeof OrderDetail>
+  @belongsTo(() => OrderDetail)
+  public orderDetail: BelongsTo<typeof OrderDetail>
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
