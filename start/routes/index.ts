@@ -6,6 +6,7 @@ import './adress'
 import './payments'
 import './shops'
 import './carts'
+import './session'
 
 Route.get('/', async () => {
   return { hello: 'world' }

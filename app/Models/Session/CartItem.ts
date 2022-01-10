@@ -1,14 +1,14 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column, hasOne, HasOne } from '@ioc:Adonis/Lucid/Orm'
-import { OrderDetail } from 'App/Models/Cart'
+import { BaseModel, column, hasOne, HasOne, hasMany, HasMany } from '@ioc:Adonis/Lucid/Orm'
+import { ShoppingSession } from 'App/Models/Session'
 import { Product } from 'App/Models/Shop'
 
-export default class OrderItem extends BaseModel {
+export default class CartItem extends BaseModel {
   @column({ isPrimary: true })
   public id: number
 
   @column()
-  public orderId: number
+  public sessionId: number
 
   @column()
   public productId: number
@@ -16,14 +16,11 @@ export default class OrderItem extends BaseModel {
   @column()
   public quantity: number
 
-  @column()
-  public productDetails: []
+  @hasOne(() => ShoppingSession)
+  public session: HasOne<typeof ShoppingSession>
 
-  @hasOne(() => Product)
-  public product: HasOne<typeof Product>
-
-  @hasOne(() => OrderDetail)
-  public orderDetail: HasOne<typeof OrderDetail>
+  @hasMany(() => Product)
+  public products: HasMany<typeof Product>
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

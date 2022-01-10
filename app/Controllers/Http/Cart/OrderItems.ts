@@ -4,7 +4,7 @@ import { Product } from 'App/Models/Shop'
 import { UpdateValidator, StoreValidator } from 'App/Validators/Cart/OrderItems'
 
 export default class OrdemItemsController {
-  public async index({ }: HttpContextContract) {
+  public async index({}: HttpContextContract) {
     const orderItems = await OrderItem.all()
     return orderItems
   }

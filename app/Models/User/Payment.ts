@@ -1,7 +1,8 @@
 import { DateTime } from 'luxon'
-import { BaseModel, BelongsTo, belongsTo, column } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, BelongsTo, belongsTo, column, beforeSave } from '@ioc:Adonis/Lucid/Orm'
 import { User } from 'App/Models/User'
 import { PaymentType } from 'App/Utils'
+import Encryption from '@ioc:Adonis/Core/Encryption'
 
 export default class Payment extends BaseModel {
   @column({ isPrimary: true })
@@ -24,6 +25,22 @@ export default class Payment extends BaseModel {
 
   @column()
   public userId: number
+
+  @beforeSave()
+  public static async encryptCardNumber(payment: Payment) {
+    const { cardNumber } = payment
+    if (cardNumber) {
+      payment.cardNumber = Encryption.encrypt(cardNumber)
+    }
+  }
+
+  @beforeSave()
+  public static async encryptCardCvv(payment: Payment) {
+    const { cardCvv } = payment
+    if (cardCvv) {
+      payment.cardCvv = Encryption.encrypt(cardCvv)
+    }
+  }
 
   @belongsTo(() => User)
   public user: BelongsTo<typeof User>
