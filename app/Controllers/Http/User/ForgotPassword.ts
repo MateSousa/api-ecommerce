@@ -27,7 +27,7 @@ export default class ForgotPassword {
     })
   }
 
-  public async update({ request }: HttpContextContract) {
+  public async update({ request, response }: HttpContextContract) {
     const { key, password } = await request.validate(UpdateValidator)
 
     const userKey = await Key.findByOrFail('key', key)
@@ -39,6 +39,6 @@ export default class ForgotPassword {
 
     await userKey.delete()
 
-    return user
+    return response.send({ message: 'Password changed successfully' })
   }
 }
