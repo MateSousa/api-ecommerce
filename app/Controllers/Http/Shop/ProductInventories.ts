@@ -1,6 +1,6 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import { ProductInventory } from 'App/Models/Shop'
-import { StoreValidator, UpdateValidator } from 'App/Validators/Shop/ProductInventory'
+import { UpdateValidator } from 'App/Validators/Shop/ProductInventory'
 
 export default class ProductInventoriesController {
   public async index({}: HttpContextContract) {
