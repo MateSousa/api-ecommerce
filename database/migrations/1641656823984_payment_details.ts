@@ -6,7 +6,7 @@ export default class PaymentDetails extends BaseSchema {
   public async up() {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
-      table.increments('order_id')
+      table.integer('order_id')
       table.integer('amount')
       table.string('provider')
       table.string('status')
