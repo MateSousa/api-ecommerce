@@ -9,6 +9,7 @@
     "lint": "eslint . --ext=.ts",
     "format": "prettier --write ."
   },
+  "type": "module",
   "engines": {
     "node": "16.13.1"
   },
