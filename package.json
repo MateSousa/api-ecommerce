@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "node ace serve --watch",
     "build": "node ace build --production",
-    "start": "node server.js",
+    "start": "node --loader ts-node/esm --experimental-specifier-resolution=node server.ts",
     "lint": "eslint . --ext=.ts",
     "format": "prettier --write ."
   },
