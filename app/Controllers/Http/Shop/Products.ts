@@ -10,12 +10,14 @@ export default class ProductsController {
 
   public async store({ request }: HttpContextContract) {
     const data = await request.validate(StoreValidator)
-    const inventory = await ProductInventory.create({})
     const discount = await ProductDiscount.create({})
     const product = await Product.create({
       ...data,
-      inventoryId: inventory.id,
       discountId: discount.id,
+    })
+    await ProductInventory.create({
+      productId: product.id,
+      quantity: 1,
     })
     return product
   }

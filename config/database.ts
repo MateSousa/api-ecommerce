@@ -25,6 +25,7 @@ const databaseConfig: DatabaseConfig = {
     /*
     |--------------------------------------------------------------------------
     | MySQL config
+
     |--------------------------------------------------------------------------
     |
     | Configuration for MySQL database. Make sure to install the driver
@@ -48,8 +49,7 @@ const databaseConfig: DatabaseConfig = {
       healthCheck: false,
       debug: false,
     },
-
-  }
+  },
 }
 
 export default databaseConfig

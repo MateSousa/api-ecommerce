@@ -23,6 +23,9 @@ export default class User extends BaseModel {
   public lastName: string
 
   @column()
+  public role: 'admin' | 'user'
+
+  @column()
   public phone: string
 
   @hasMany(() => Adress)

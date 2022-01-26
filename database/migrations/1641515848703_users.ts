@@ -12,6 +12,7 @@ export default class UsersSchema extends BaseSchema {
       table.string('name')
       table.string('last_name')
       table.string('phone')
+      table.enu('role', ['admin', 'user']).defaultTo('user')
       table.timestamps(true)
     })
   }

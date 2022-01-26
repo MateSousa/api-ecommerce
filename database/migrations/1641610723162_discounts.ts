@@ -10,6 +10,7 @@ export default class Discounts extends BaseSchema {
       table.string('description')
       table.decimal('discount_percent')
       table.boolean('active')
+      table.integer('product_id')
       table.timestamp('created_at', { useTz: true })
       table.timestamp('updated_at', { useTz: true })
     })

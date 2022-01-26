@@ -9,6 +9,9 @@ export default class ProductInventory extends BaseModel {
   @column()
   public quantity: number
 
+  @column()
+  public productId: number
+
   @belongsTo(() => Product)
   public product: BelongsTo<typeof Product>
 

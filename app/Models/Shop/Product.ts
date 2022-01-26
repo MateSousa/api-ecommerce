@@ -18,17 +18,14 @@ export default class Product extends BaseModel {
   @column()
   public price: number
 
-  @column()
-  public categoryId: number
+  @column({ serializeAs: 'categoryName' })
+  public categoryName: string
 
   @column()
   public discountId: number
 
   @column()
   public inventoryId: number
-
-  @hasMany(() => ProductCategory)
-  public categories: HasMany<typeof ProductCategory>
 
   @hasOne(() => ProductDiscount)
   public discount: HasOne<typeof ProductDiscount>

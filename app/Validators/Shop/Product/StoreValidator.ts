@@ -9,6 +9,7 @@ export default class StoreValidator {
     SKU: schema.string({ trim: true }),
     description: schema.string({ trim: true }),
     price: schema.number(),
+    categoryName: schema.string({ trim: true }),
   })
 
   public messages = {}

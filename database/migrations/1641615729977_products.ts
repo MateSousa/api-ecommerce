@@ -10,13 +10,7 @@ export default class Products extends BaseSchema {
       table.string('SKU').notNullable()
       table.text('description').notNullable()
       table.decimal('price').notNullable()
-      table
-        .integer('category_id')
-        .unsigned()
-        .references('id')
-        .inTable('product_categories')
-        .onDelete('CASCADE')
-        .onUpdate('CASCADE')
+      table.string('category_name').notNullable()
       table
         .integer('inventory_id')
         .unsigned()

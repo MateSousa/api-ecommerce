@@ -7,6 +7,7 @@ export default class ProductInventories extends BaseSchema {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
       table.integer('quantity').defaultTo(1)
+      table.integer('product_id')
       table.timestamp('created_at', { useTz: true })
       table.timestamp('updated_at', { useTz: true })
     })

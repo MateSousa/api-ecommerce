@@ -13,10 +13,13 @@ export default class ProductDiscount extends BaseModel {
   public description: string
 
   @column()
-  public dicountPercent: number
+  public discountPercent: number
 
   @column()
   public active: boolean
+
+  @column()
+  public productId: number
 
   @hasMany(() => Product)
   public products: HasMany<typeof Product>
